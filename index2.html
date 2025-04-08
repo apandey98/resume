@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Kumar - SDET/QA Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            animation: fadeInDown 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--light-color);
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .sidebar {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 1.5rem;
+            display: block;
+            background-color: #ddd;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            border-radius: 4px;
+            transition: width 1.5s ease;
+        }
+        
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            border-radius: 3px;
+        }
+        
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .experience-item:last-child, .project-item:last-child, .education-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .exp-header, .project-header, .edu-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .exp-company, .project-name, .edu-degree {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .exp-period, .project-period, .edu-period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .exp-position, .project-role, .edu-school {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .exp-desc, .project-desc {
+            margin-bottom: 0.8rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+        
+        .tech-item {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .responsibilities-list, .achievements-list, .summary-list {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        .responsibilities-list li, .achievements-list li, .summary-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .personal-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .achievement-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .achievement-item::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        .project-toggle {
+            background: none;
+            border: none;
+            color: var(--secondary-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0.2rem 0.5rem;
+            margin-top: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-toggle:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+        
+        .project-details.active {
+            max-height: 1000px;
+            padding-top: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 100;
+            border: none;
+        }
+        
+        .print-btn:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .personal-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            
+            body {
+                background-color: white;
+            }
+            
+            header {
+                background: var(--primary-color);
+            }
+            
+            .section, .sidebar {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content container">
+            <h1>ABHISHEK KUMAR</h1>
+            <p class="tagline">Results-driven SDET and QA Engineer with 6–7 years of experience</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:7903158776">7903158776</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:Abhier93@gmail.com">Abhier93@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/abhi911" target="_blank">linkedin.com/in/abhi911</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <aside class="sidebar">
+                <img src="C:\Users\LENOVO\Desktop\my website\mypic.jpg?name=Abhishek+Kumar&size=150&background=random" alt="Abhishek Kumar" class="profile-img">
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title"><i class="fas fa-user-tie"></i> Professional Summary</h3>
+                    <ul class="summary-list">
+                        <li>Extensive experience in software testing across diverse applications</li>
+                        <li>Proficient in mobile app testing (native, hybrid, and web)</li>
+                        <li>Skilled in test environment setup, execution, and defect reporting</li>
+                        <li>Expert in automation frameworks (Selenium, POM, TestNG)</li>
+                        <li>Strong expertise in API testing using Postman</li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title"><i class="fas fa-code"></i> Technical Skills</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Selenium WebDriver</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Java</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>TestNG</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>API Testing (Postman)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>BDD Cucumber</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>SQL</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Git/GitHub</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>JIRA</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title"><i class="fas fa-info-circle"></i> Personal Details</h3>
+                    <div class="personal-details">
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fas fa-birthday-cake"></i> DOB:</span>
+                            <span>25/04/1993</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fas fa-language"></i> Languages:</span>
+                            <span>English, Hindi</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fas fa-map-marker-alt"></i> Location:</span>
+                            <span>Noida, India</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+            <main class="content-area">
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Work Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <span class="exp-company">Petco</span>
+                            <span class="exp-period">Oct 2023 - Dec 2023</span>
+                        </div>
+                        <div class="exp-position">Sr QA Engineer</div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <span class="exp-company">Infogain (Codersbrain Technologies payroll)</span>
+                            <span class="exp-period">Feb 2022 - Oct 2023</span>
+                        </div>
+                        <div class="exp-position">Consultant QA Engineer</div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <span class="exp-company">Chetu India PVT LTD</span>
+                            <span class="exp-period">Oct 2020 - Feb 2022</span>
+                        </div>
+                        <div class="exp-position">Automation QA Engineer</div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <span class="exp-company">Oracle India PVT LTD</span>
+                            <span class="exp-period">April 2018 - Aug 2020</span>
+                        </div>
+                        <div class="exp-position">Assistant Consultant</div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-name">Sabre Inc. – Global Travel Technology Platform</span>
+                            <span class="project-period">1 year 9 months</span>
+                        </div>
+                        <div class="project-role">Test Automation Engineer at Infogain</div>
+                        <div class="project-desc">
+                            Sabre Inc. is a leading global travel technology company and the world's largest Global Distribution System (GDS) provider for airline bookings.
+                        </div>
+                        <button class="project-toggle" onclick="toggleProjectDetails('project1')">
+                            <span>View Details</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details" id="project1">
+                            <h4>Tech Stack & Tools:</h4>
+                            <div class="tech-stack">
+                                <span class="tech-item">Selenium WebDriver</span>
+                                <span class="tech-item">TestNG</span>
+                                <span class="tech-item">BDD Cucumber</span>
+                                <span class="tech-item">Maven</span>
+                                <span class="tech-item">Google Cloud Platform</span>
+                                <span class="tech-item">ARMADA</span>
+                                <span class="tech-item">Rundeck</span>
+                                <span class="tech-item">JIRA</span>
+                                <span class="tech-item">Agile Scrum</span>
+                            </div>
+                            <h4>Roles & Responsibilities:</h4>
+                            <ul class="responsibilities-list">
+                                <li>Developed robust and scalable web automation test scripts using Selenium WebDriver, TestNG, and BDD Cucumber</li>
+                                <li>Maintained and executed high-coverage regression test suites for complex multi-step booking workflows</li>
+                                <li>Conducted proactive log analysis via GCP to identify backend and system-level issues</li>
+                                <li>Used Rundeck for server job execution and ARMADA for build deployment</li>
+                                <li>Collaborated closely with cross-functional Agile teams</li>
+                                <li>Managed and triaged defects through JIRA</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-name">Degreed – Learning Experience & Upskilling Platform</span>
+                            <span class="project-period">1.5 years</span>
+                        </div>
+                        <div class="project-role">Test Automation Engineer at Chetu Inc.</div>
+                        <div class="project-desc">
+                            Market-leading upskilling and learning experience platform that empowers organizations to drive internal mobility and skill development.
+                        </div>
+                        <button class="project-toggle" onclick="toggleProjectDetails('project2')">
+                            <span>View Details</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details" id="project2">
+                            <h4>Tech Stack & Tools:</h4>
+                            <div class="tech-stack">
+                                <span class="tech-item">Selenium WebDriver</span>
+                                <span class="tech-item">TestNG</span>
+                                <span class="tech-item">Page Object Model</span>
+                                <span class="tech-item">GitHub</span>
+                                <span class="tech-item">JIRA</span>
+                                <span class="tech-item">Agile Scrum</span>
+                            </div>
+                            <h4>Roles & Responsibilities:</h4>
+                            <ul class="responsibilities-list">
+                                <li>Conducted comprehensive functional, backend, and automation testing</li>
+                                <li>Created and executed detailed test cases for third-party integrations</li>
+                                <li>Developed and maintained automated test scripts using Selenium WebDriver, TestNG, and POM</li>
+                                <li>Managed source code repositories via GitHub</li>
+                                <li>Tracked, reported, and followed up on bugs using JIRA</li>
+                                <li>Actively participated in Agile Scrum ceremonies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-name">TIM Brazil – Telecom Backend System Testing</span>
+                            <span class="project-period">2+ Years</span>
+                        </div>
+                        <div class="project-role">Assistant Consultant (Backend Manual Tester) at Oracle</div>
+                        <div class="project-desc">
+                            Modernization and stabilization of backend systems supporting telecom operations for one of the leading providers in Latin America.
+                        </div>
+                        <button class="project-toggle" onclick="toggleProjectDetails('project3')">
+                            <span>View Details</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="project-details" id="project3">
+                            <h4>Tech Stack & Tools:</h4>
+                            <div class="tech-stack">
+                                <span class="tech-item">Postman</span>
+                                <span class="tech-item">REST & SOAP APIs</span>
+                                <span class="tech-item">SQL</span>
+                                <span class="tech-item">JIRA</span>
+                                <span class="tech-item">Agile Scrum</span>
+                            </div>
+                            <h4>Roles & Responsibilities:</h4>
+                            <ul class="responsibilities-list">
+                                <li>Performed API testing using Postman, validating REST and SOAP service responses</li>
+                                <li>Executed complex SQL queries for backend validation</li>
+                                <li>Conducted functional, integration, and regression testing</li>
+                                <li>Designed and executed comprehensive test cases</li>
+                                <li>Collaborated with developers and business analysts</li>
+                                <li>Logged, tracked, and managed bugs in JIRA</li>
+                                <li>Validated system stability after updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements</h2>
+                    <ul class="achievements-list">
+                        <li class="achievement-item">
+                            <strong>Boosted Automation Coverage:</strong> Automated 75%+ of regression test cases using Selenium, TestNG, and Cucumber, reducing manual testing time by 30% and accelerating release cycles.
+                        </li>
+                        <li class="achievement-item">
+                            <strong>Enhanced System Stability:</strong> Leveraged GCP for backend log analysis and Rundeck for job execution, cutting post-deployment defects by 20% on Sabre's travel platform.
+                        </li>
+                        <li class="achievement-item">
+                            <strong>Improved Framework Efficiency:</strong> Designed a scalable Page Object Model (POM) framework for Degreed, reducing script maintenance efforts and onboarding time by 40%.
+                        </li>
+                        <li class="achievement-item">
+                            <strong>Strengthened Backend Validation:</strong> Conducted advanced SQL and API testing for TIM Brazil, ensuring high data integrity and reliability across telecom backend systems.
+                        </li>
+                        <li class="achievement-item">
+                            <strong>Validated Seamless Integrations:</strong> Ensured 99% accuracy in third-party content integration on Degreed, supporting a frictionless and dependable user learning experience.
+                        </li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <span class="edu-degree">B. Tech (Computer Science)</span>
+                            <span class="edu-period">2016</span>
+                        </div>
+                        <div class="edu-school">AKTU, Lucknow</div>
+                        <div class="edu-desc">Percentage: 66.6%</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <span class="edu-degree">12th Intermediate</span>
+                            <span class="edu-period">2012</span>
+                        </div>
+                        <div class="edu-school">BSEB, Patna</div>
+                        <div class="edu-desc">Percentage: 66.7%</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <span class="edu-degree">10th</span>
+                            <span class="edu-period">2010</span>
+                        </div>
+                        <div class="edu-school">BSEB, Patna</div>
+                        <div class="edu-desc">Percentage: 74%</div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 Abhishek Kumar. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/abhi911" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:Abhier93@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="tel:7903158776" class="social-link"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <button class="print-btn" onclick="window.print()" title="Print Resume">
+        <i class="fas fa-print"></i>
+    </button>
+    
+    <script>
+        // Animate skill bars on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            const animateSkillBars = () => {
+                skillBars.forEach(bar => {
+                    const width = bar.parentElement.previousElementSibling.lastElementChild.textContent;
+                    bar.style.width = width;
+                });
+            };
+            
+            // Run animation after a short delay to allow page to load
+            setTimeout(animateSkillBars, 500);
+            
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+        
+        // Toggle project details
+        function toggleProjectDetails(id) {
+            const details = document.getElementById(id);
+            const toggleBtn = details.previousElementSibling;
+            
+            details.classList.toggle('active');
+            
+            if (details.classList.contains('active')) {
+                toggleBtn.innerHTML = '<span>Hide Details</span> <i class="fas fa-chevron-up"></i>';
+            } else {
+                toggleBtn.innerHTML = '<span>View Details</span> <i class="fas fa-chevron-down"></i>';
+            }
+        }
+    </script>
+</body>
+</html>
